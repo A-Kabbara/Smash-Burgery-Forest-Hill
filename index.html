@@ -9,11 +9,12 @@
      Single-page marketing site. Mobile-first.
 
      OWNER TO-DO before going live:
-       1. Paste real Uber Eats link  -> find  https://www.ubereats.com/au/store/smash-burgery/4F7Kjc2nQSiI8r-2Mi3mWw
-       2. Paste real DoorDash link   -> find  https://www.doordash.com/store/smash-burgery-forest-hill-39355169/
-       3. Drop real photos into the labelled image blocks
-       4. Confirm Instagram handle URL
-       (search the file for the tokens above)
+       1. Confirm production domain (currently assumes smashburgery.com.au
+          in canonical, JSON-LD url, robots.txt). Find-replace if different.
+       2. Add a phone number to the JSON-LD if wanted (telephone field).
+       3. Optional: swap AI-enhanced food renders for real high-res photos.
+
+     Order links are live (Uber Eats + DoorDash). Confirmed against Uber Eats.
 
      HERO HEADLINE OPTIONS (pick one, currently using #1):
        1. "Smashed Fresh. Forest Hill."
@@ -367,6 +368,32 @@
   .truck h2{font-size:clamp(2rem,7vw,3.2rem)}
   .truck p{color:var(--cream-dim);margin-top:14px;font-size:1.06rem}
   .truck .truck-cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+
+  /* ---------- Restrained premium micro-details ---------- */
+  /* subtle hover zoom on menu photos */
+  .menu-photo img{transition:transform .55s cubic-bezier(.2,.6,.2,1)}
+  .menu-photo:hover img{transform:scale(1.045)}
+  /* staggered reveal for grouped cards */
+  .cards .card:nth-child(2),.reviews .review:nth-child(2){transition-delay:.09s}
+  .cards .card:nth-child(3),.reviews .review:nth-child(3){transition-delay:.18s}
+  /* cleaner truck band on phones (its own signage was competing with the copy) */
+  @media(max-width:600px){
+    .truck{padding:80px 0}
+    .truck .truck-bg{
+      background:
+        linear-gradient(180deg,rgba(9,10,9,.74) 0%,rgba(9,10,9,.88) 100%),
+        url("assets/truck.webp") center/cover no-repeat #0a0b09;
+    }
+  }
+  /* a little more breathing room in the hero on phones */
+  @media(max-width:600px){
+    .hero-inner{min-height:80vh;padding:48px 0 58px}
+    .hero-meta{gap:12px 16px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .menu-photo:hover img{transform:none}
+    .cards .card,.reviews .review{transition-delay:0s !important}
+  }
 </style>
 </head>
 
