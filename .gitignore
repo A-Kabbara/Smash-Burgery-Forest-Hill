@@ -1,0 +1,11 @@
+# Working / source files (not needed for deploy)
+assets/gen/
+ig-source/
+__pycache__/
+Screenshot*.png
+*-source/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.code-workspace
