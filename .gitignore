@@ -1,6 +1,8 @@
 # Working / source files (not needed for deploy)
 assets/gen/
 ig-source/
+comparisons/
+cleaned-real/
 __pycache__/
 Screenshot*.png
 *-source/
